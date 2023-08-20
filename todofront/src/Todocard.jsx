@@ -27,7 +27,7 @@ const Todocard = ({ todo}) => {
         done: true,
       }) ;
 
-      setIsChecked(true);
+      setIsChecked(!checked);
 
      } catch (error) {
         console.log(error);
