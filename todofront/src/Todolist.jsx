@@ -29,7 +29,7 @@ const Todolist = ({list,setList}) => {
   }
 
   return (
-    <div className='w-full my-3 overflow-y-auto rounded-lg shadow-sm shadow-neutral-500'>
+    <div className='w-full my-3 overflow-y-auto rounded-lg shadow-sm shadow-neutral-500  '>
       {renderList()}
     </div>
      
