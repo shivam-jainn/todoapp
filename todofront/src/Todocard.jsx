@@ -35,20 +35,20 @@ const Todocard = ({ todo}) => {
   }
 
   return (
-    <div className={`flex justify-between items-center p-2 bg-gray-300 rounded max-w-lg h-16 ${deleted?'hidden':''}`}>
-      <div className="inputbox grow-0">
+    <div className={`w-full flex justify-between items-center p-2  border rounded-lg my-1   border-black  ${deleted?'hidden':''}`}>
+      <div className="inputbox w-1/6 mr-2">
         <input
           type="checkbox"
           name="todo"
           id="todo"
-          className=" h-8 w-8 rounded-full border-none outline-none checked:bg-gradient-to-r from-violet-500 to-fuchsia-500  focus:ring-0"
+          className="rounded-full outline-none p-3 checked:bg-blue-500"
           onClick={handleFinishTodo}
        />
       </div>
 
-      <div className={`todotext notdone grow max-w-prose mx-3 ${checked ? 'line-through text-gray-500':''}  `} >{todo.todotext}</div>
+      <div className={`todotext w-4/6 truncate   ${checked ? 'line-through text-gray-600':''}  `} >{todo.todotext}</div>
 
-      <div className="killtask grow-0" onClick={deleteTodo}>
+      <div className="killtask w-1/6 flex justify-end ml-2" onClick={deleteTodo}>
         <button>
           <X size={32} weight="thin" />
         </button>

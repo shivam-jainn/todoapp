@@ -32,11 +32,11 @@ const Todolist = () => {
   }
 
   return (
-    <div>
+    <>
       <AddTodoCard onTodoAdded={addTodoToList} />
      
       {renderList()}
-    </div>
+    </>
   );
 }
 

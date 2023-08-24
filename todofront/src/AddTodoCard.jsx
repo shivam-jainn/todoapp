@@ -1,38 +1,38 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const AddTodoCard = ({onTodoAdded}) => {
-  const [todotext, setTodotext] = useState(""); // Initialize with an empty string
+const AddTodoCard = ({ onTodoAdded }) => {
+  const [todotext, setTodotext] = useState("");
 
-  async function addTodo(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/todos/addTask", {
-        todotext: todotext,
-        done: false,
-      });
-
-      console.log(response.data); // Access the response data
+      const response = await addTodoAPI(todotext);
       onTodoAdded(response.data);
-
-      setTodotext('');
-      // You can also update your state here or perform other actions if needed
+      setTodotext("");
     } catch (error) {
       console.error("Error adding todo:", error);
     }
-  }
+  };
+
+  const addTodoAPI = async (todoText) => {
+    return axios.post("http://localhost:3000/todos/addTask", {
+      todotext: todoText,
+      done: false,
+    });
+  };
 
   return (
-    <form onSubmit={addTodo}>
+    <form onSubmit={handleSubmit} className="w-full m-4">
       <input
         type="text"
-        className="p-4 rounded-md"
+        className="p-2 rounded-md w-full "
         placeholder="Add a new todo"
-        value={todotext} // Use value instead of onChange
+        value={todotext}
         onChange={(e) => setTodotext(e.target.value)}
       />
-      <button type="submit">Add Todo</button>
+    
     </form>
   );
 };
