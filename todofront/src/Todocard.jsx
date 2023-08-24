@@ -22,11 +22,14 @@ const Todocard = ({ todo}) => {
 
   async function handleFinishTodo(){
      try {
+
+
       const response = await axios.put("http://localhost:3000/todos/updateComplete",{
         todoid: todo._id,
-        done: true,
+        done: !(checked),
       }) ;
 
+      console.log(response);
       setIsChecked(!checked);
 
      } catch (error) {
@@ -35,13 +38,14 @@ const Todocard = ({ todo}) => {
   }
 
   return (
-    <div className={`w-full flex justify-between items-center p-2  border rounded-lg my-1   border-black  ${deleted?'hidden':''}`}>
+    <div className={`w-full flex justify-between items-center p-2    bg-white     ${deleted?'hidden':''}  `}>
       <div className="inputbox w-1/6 mr-2">
         <input
           type="checkbox"
           name="todo"
           id="todo"
-          className="rounded-full outline-none p-3 checked:bg-blue-500"
+          className={`rounded-full   p-3
+                     ${checked? 'checked:bg-gradient-to-r from-cyan-500 to-blue-500}':''} outline-none  `}
           onClick={handleFinishTodo}
        />
       </div>

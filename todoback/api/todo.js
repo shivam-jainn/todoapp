@@ -24,7 +24,6 @@ todoapi_router.post('/addTask', async (req, res) => {
         const newTodo = new todo({
             todotext,
             done,
-            // Don't set todoID here, it's usually assigned by MongoDB automatically
         });
 
         const savedTodo = await newTodo.save();
@@ -54,15 +53,15 @@ todoapi_router.post('/deleteTask', async (req, res) => {
     }
 });
 
-// Update a todo's completion status by ID
 todoapi_router.put('/updateComplete', async (req, res) => {
     try {
-        console.log(req.body);
+
         const { todoid } = req.body;
+        const { done } = req.body;
 
         const updatedTodo = await todo.findOneAndUpdate(
             { _id: todoid },
-            { done: true },
+            { done: !(done)  },
         );
 
         if (!updatedTodo) {

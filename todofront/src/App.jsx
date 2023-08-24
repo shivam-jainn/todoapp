@@ -1,11 +1,11 @@
-import TodoStateCard from "./TodoStateCard";
-import Todolist from "./Todolist";
+import MainTodoDiv from "./MainTodoDiv";
+import bgdesktoplight from "./assets/bg-desktop-light.jpg"
 export default function App() {
   return (
-      <div className="max-w-lg mx-auto my-10 flex flex-col items-center px-4">
-      <Todolist />
-       <TodoStateCard  />
-      </div>
+    <div>
+      <img src={bgdesktoplight} className="relative" />
+      <MainTodoDiv />
+    </div>
 
   );
 }

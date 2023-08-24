@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 import Todocard from './Todocard'
-import AddTodoCard from './AddTodoCard';
 
-const Todolist = () => {
-  const [list, setList] = useState([]);
-
+const Todolist = ({list,setList}) => {
+  
   useEffect(() => {
     fetchList();
   }, []);
 
-  function addTodoToList(newTodo) {
-    setList(prevList => [...prevList, newTodo]);
-  }
+  console.log(list);
+
 
   async function fetchList() {
     try {
@@ -32,11 +29,10 @@ const Todolist = () => {
   }
 
   return (
-    <>
-      <AddTodoCard onTodoAdded={addTodoToList} />
-     
+    <div className='w-full my-3 overflow-y-auto rounded-lg shadow-sm shadow-neutral-500'>
       {renderList()}
-    </>
+    </div>
+     
   );
 }
 

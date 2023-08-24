@@ -2,7 +2,7 @@ import React from "react";
 
 const TodoStateCard = () => {
   return (
-    <div className="w-full m-2 text-sm flex justify-between items-center">
+    <div className=" w-full bottom-5  px-4 shadow-sm shadow-neutral-500 text-sm flex justify-between items-center bg-white p-2 rounded-lg">
       
       <div className="w-1/5">
         5 items left
