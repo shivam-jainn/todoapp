@@ -2,7 +2,7 @@ import React from "react";
 
 const TodoStateCard = () => {
   return (
-    <div className=" w-full bottom-5  px-4 shadow-sm shadow-neutral-500 text-sm flex justify-between items-center bg-white p-2 rounded-lg max-sm:justify-center  ">
+    <div className=" w-full bottom-5  px-4 shadow-sm shadow-neutral-500 text-sm flex justify-between items-center  p-2 rounded-lg max-sm:justify-center   bg-bkg text-content">
       
       <div className="w-1/5 max-sm:hidden">
         5 items left

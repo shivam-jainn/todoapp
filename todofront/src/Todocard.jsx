@@ -38,7 +38,7 @@ const Todocard = ({ todo}) => {
   }
 
   return (
-    <div className={`w-full flex justify-between items-center p-2    bg-white     ${deleted?'hidden':''}   `}>
+    <div className={`w-full flex justify-between items-center p-2       ${deleted?'hidden':''}  bg-bkg text-content   `}>
       <div className="inputbox w-1/6 mr-2">
         <input
           type="checkbox"

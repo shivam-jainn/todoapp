@@ -7,6 +7,14 @@ const todoSchema = new mongoose.Schema({
 })
 
 
-const todo = mongoose.model('todo', todoSchema);
+const userSchema = new mongoose.Schema({
+    username : String,
+    password : String,
+    email : String,
+    todos : [todoSchema]
+});
 
-module.exports = {todo}
+const todo = mongoose.model('todo', todoSchema);
+const User = mongoose.model('user', userSchema);
+
+module.exports = {todo,User}

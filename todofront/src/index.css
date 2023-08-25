@@ -2,3 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    height: 100vh;
+}
+
+#root{
+    height: 100%;
+}
+
+@layer base {
+    :root {
+      --color-bkg: 0deg 0 100;
+      --color-content: 217deg 32.6% 17.5%;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bkg: 217deg 32.6% 17.5%;
+        --color-content: 210deg 40% 98%;
+
+      }
+    }
+    :root[data-theme="dark"] {
+      --color-bkg: 217deg 32.6% 17.5%;
+      --color-content: 210deg 40% 98%;
+      
+    }
+
+  }

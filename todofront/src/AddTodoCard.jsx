@@ -24,10 +24,10 @@ const AddTodoCard = ({ onTodoAdded }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full my-4">
+    <form onSubmit={handleSubmit} className="w-full my-4  ">
       <input
         type="text"
-        className="p-2 rounded-md w-full border-none outline-none ring-none   "
+        className="p-2 rounded-md w-full border-none outline-none ring-none   bg-bkg text-content "
         placeholder="Add a new todo"
         value={todotext}
         onChange={(e) => setTodotext(e.target.value)}
