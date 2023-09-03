@@ -1,10 +1,11 @@
-const express = require('express');
-const { todo } = require('../model');
+import express, { Express, Request, Response , Application,Router } from 'express';
+import todo from "../model"
 
-const todoapi_router = express.Router();
+
+const todoapi_router:Router = express.Router();
 
 // Get all todos
-todoapi_router.get('/showlist', async (req, res) => {
+todoapi_router.get('/showlist', async (req:Request, res:Response) => {
     try {
         const allTodo = await todo.find();
         res.status(200).json(allTodo);
@@ -15,15 +16,15 @@ todoapi_router.get('/showlist', async (req, res) => {
 });
 
 // Add a new todo
-todoapi_router.post('/addTask', async (req, res) => {
+todoapi_router.post('/addTask', async (req:Request, res:Response) => {
     try {
 
-
-        const { todotext, done } = req.body;
+        const done:boolean = req.body;
+        const todotext:string = req.body;
 
         const newTodo = new todo({
-            todotext,
-            done,
+            todotext: todotext,
+            done : done,
         });
 
         const savedTodo = await newTodo.save();
@@ -35,7 +36,7 @@ todoapi_router.post('/addTask', async (req, res) => {
 });
 
 // Delete a todo by ID
-todoapi_router.post('/deleteTask', async (req, res) => {
+todoapi_router.post('/deleteTask', async (req:Request, res:Response) => {
     try {
         const { todoid } = req.body;
 
@@ -53,13 +54,13 @@ todoapi_router.post('/deleteTask', async (req, res) => {
     }
 });
 
-todoapi_router.put('/updateComplete', async (req, res) => {
+todoapi_router.put('/updateComplete', async (req:Request, res:Response) => {
     try {
 
         const { todoid } = req.body;
-        const { done } = req.body;
+        const done:boolean = req.body;
 
-        const updatedTodo = await todo.findOneAndUpdate(
+        const updatedTodo:boolean = await todo.findOneAndUpdate(
             { _id: todoid },
             { done: !(done)  },
         );
@@ -76,4 +77,5 @@ todoapi_router.put('/updateComplete', async (req, res) => {
     }
 });
 
-module.exports = todoapi_router;
+
+export default todoapi_router;

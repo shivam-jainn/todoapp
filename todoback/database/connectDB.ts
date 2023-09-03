@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
+import mongoose from "mongoose";
 
 
-function connectDB(dbURI){
+function connectDB(dbURI: string){
     mongoose
     .connect(dbURI)
     .then(()=>{
@@ -12,5 +12,4 @@ function connectDB(dbURI){
     })
 }
 
-
-module.exports = {connectDB}
+export default connectDB;
